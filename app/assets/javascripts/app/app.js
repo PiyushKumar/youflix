@@ -1,11 +1,30 @@
 /**
  * Created by kuma0177 on 7/23/15.
  */
+// app/assets/javascripts/app/app.js
+
 'use strict';
+
+angular.module('youflixApp', []).controller('MoviesController', function($scope) {
+        $scope.user = {
+            name: "Enter your name"
+        };
+    });
+
+
 
 angular.module('youflixApp')
     .controller('MoviesController', ["$scope",
         function($scope) {
+
+            $scope.addFavorite = function(movie) {
+                movie.isFavorite = true;
+            };
+
+            $scope.removeFavorite = function(movie) {
+                movie.isFavorite = false;
+            };
+
             $scope.movies = [
                 {
                     youtubeId: "8Eg6yIwP2vs",
@@ -63,3 +82,12 @@ angular.module('youflixApp')
                 }
             ];
         }]);
+
+
+$scope.addFavorite = function(movie) {
+    movie.isFavorite = true;
+};
+
+$scope.removeFavorite = function(movie) {
+    movie.isFavorite = false;
+};
